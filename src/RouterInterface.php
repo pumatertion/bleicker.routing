@@ -31,7 +31,9 @@ interface RouterInterface {
 	public function dispatch($uri, $method = 'get');
 
 	/**
+	 * @param string $cacheFile
+	 * @param boolean $cacheDisabled
 	 * @return RouterInterface
 	 */
-	public static function getInstance();
+	public static function getInstance($cacheFile, $cacheDisabled = FALSE);
 }

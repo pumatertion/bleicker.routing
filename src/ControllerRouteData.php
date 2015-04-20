@@ -59,4 +59,12 @@ class ControllerRouteData implements ControllerRouteDataInterface {
 	public function getMethod() {
 		return $this->method;
 	}
+
+	/**
+	 * @param array $properties
+	 * @return ControllerRouteData
+	 */
+	public static function __set_state($properties = array()) {
+		return new ControllerRouteData($properties['controller'], $properties['method']);
+	}
 }
