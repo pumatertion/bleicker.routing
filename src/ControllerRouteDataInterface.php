@@ -30,5 +30,4 @@ interface ControllerRouteDataInterface extends RouteDataInterface {
 	 * @return string
 	 */
 	public function getMethod();
-
 }

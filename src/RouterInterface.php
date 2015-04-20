@@ -34,5 +34,4 @@ interface RouterInterface {
 	 * @return RouterInterface
 	 */
 	public static function getInstance();
-
 }
