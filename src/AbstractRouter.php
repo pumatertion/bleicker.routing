@@ -1,7 +1,6 @@
 <?php
 
 namespace Bleicker\Routing;
-use Bleicker\Framework\Registry;
 
 /**
  * Class AbstractRouter
