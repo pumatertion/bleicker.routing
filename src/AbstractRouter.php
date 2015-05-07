@@ -2,6 +2,8 @@
 
 namespace Bleicker\Routing;
 
+use Closure;
+
 /**
  * Class AbstractRouter
  *
@@ -25,6 +27,11 @@ abstract class AbstractRouter implements RouterInterface {
 	protected $cacheDisabled;
 
 	/**
+	 * @var array
+	 */
+	protected $routes = [];
+
+	/**
 	 * @param string $cacheFile
 	 * @param boolean $cacheDisabled
 	 * @return RouterInterface
@@ -34,6 +41,22 @@ abstract class AbstractRouter implements RouterInterface {
 			self::$instance = new static($cacheFile, $cacheDisabled);
 		}
 		return self::$instance;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getRoutes() {
+		return $this->routes;
+	}
+
+	/**
+	 * @param Closure $closure
+	 * @return $this
+	 */
+	public function dispatchClosure(Closure $closure) {
+		call_user_func_array($closure, ['router' => $this]);
+		return $this;
 	}
 
 	private final function __construct($cacheFile, $cacheDisabled) {
