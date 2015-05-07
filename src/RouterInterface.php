@@ -2,6 +2,8 @@
 
 namespace Bleicker\Routing;
 
+use Closure;
+
 /**
  * Class Router
  *
@@ -24,11 +26,22 @@ interface RouterInterface {
 	public function addRoute($pattern, $method, RouteDataInterface $data);
 
 	/**
+	 * @return array
+	 */
+	public function getRoutes();
+
+	/**
 	 * @param string $uri
 	 * @param string $method
 	 * @return array
 	 */
 	public function dispatch($uri, $method = 'get');
+
+	/**
+	 * @param callable $closure
+	 * @return $this
+	 */
+	public function dispatchClosure(Closure $closure);
 
 	/**
 	 * @param string $cacheFile
