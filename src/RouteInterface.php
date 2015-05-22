@@ -15,30 +15,17 @@ interface RouteInterface {
 	public function getMethod();
 
 	/**
-	 * @param string $method
-	 * @return $this
-	 */
-	public function setMethod($method);
-
-	/**
 	 * @return string
 	 */
 	public function getPattern();
 
 	/**
-	 * @param string $pattern
-	 * @return $this
+	 * @return string
 	 */
-	public function setPattern($pattern);
+	public function getClassName();
 
 	/**
-	 * @param RouteDataInterface $data
-	 * @return $this
+	 * @return string
 	 */
-	public function setData(RouteDataInterface $data);
-
-	/**
-	 * @return RouteDataInterface
-	 */
-	public function getData();
+	public function getMethodName();
 }
