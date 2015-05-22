@@ -56,7 +56,7 @@ class Result implements ResultInterface {
 	}
 
 	/**
-	 * @return \Bleicker\Routing\RouteInterface
+	 * @return RouteInterface
 	 */
 	public function getRoute() {
 		return $this->route;
