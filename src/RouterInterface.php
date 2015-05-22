@@ -2,8 +2,6 @@
 
 namespace Bleicker\Routing;
 
-use Closure;
-
 /**
  * Class Router
  *
@@ -18,35 +16,23 @@ interface RouterInterface {
 	const METHOD_NOT_ALLOWED = 2;
 
 	/**
+	 * @param string $className
+	 * @param string $methodName
 	 * @param string $pattern
 	 * @param string $method
-	 * @param RouteDataInterface $data
 	 * @return $this
 	 */
-	public function addRoute($pattern, $method, RouteDataInterface $data);
+	public function addRoute($className, $methodName, $pattern, $method);
 
 	/**
-	 * @return array
+	 * @return RouteInterface[]
 	 */
 	public function getRoutes();
 
 	/**
 	 * @param string $uri
 	 * @param string $method
-	 * @return array
+	 * @return RouteInterface
 	 */
-	public function dispatch($uri, $method = 'get');
-
-	/**
-	 * @param callable $closure
-	 * @return $this
-	 */
-	public function dispatchClosure(Closure $closure);
-
-	/**
-	 * @param string $cacheFile
-	 * @param boolean $cacheDisabled
-	 * @return RouterInterface
-	 */
-	public static function getInstance($cacheFile, $cacheDisabled = FALSE);
+	public function findMatchingRoute($uri, $method = 'get');
 }
