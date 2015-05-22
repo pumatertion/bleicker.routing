@@ -19,9 +19,9 @@ class ResultTest extends UnitTestCase {
 	 * @test
 	 */
 	public function createNotFoundTest() {
-		$result = Result::create(1, Route::create('foo', 'bar', '.*', 'get'), ['foo' => 'bar']);
+		$result = Result::create(ResultInterface::STATUS_FOUND, Route::create('foo', 'bar', '.*', 'get'), ['foo' => 'bar']);
 		$this->assertInstanceOf(ResultInterface::class, $result);
-		$this->assertEquals(1, $result->getStatus());
+		$this->assertEquals(ResultInterface::STATUS_FOUND, $result->getStatus());
 		$this->assertInstanceOf(RouteInterface::class, $result->getRoute());
 		$this->assertEquals(['foo' => 'bar'], $result->getArguments());
 	}
