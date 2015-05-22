@@ -9,12 +9,6 @@ namespace Bleicker\Routing;
  */
 interface ResultInterface {
 
-	const NOT_FOUND = 'notFound';
-
-	const FOUND = 'found';
-
-	const METHOD_NOT_ALLOWED = 'methodNotAllowed';
-
 	/**
 	 * @return array
 	 */
