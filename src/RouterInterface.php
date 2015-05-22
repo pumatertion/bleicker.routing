@@ -26,7 +26,7 @@ interface RouterInterface {
 	/**
 	 * @param string $uri
 	 * @param string $method
-	 * @return RouteInterface
+	 * @return ResultInterface
 	 */
-	public function findMatchingRoute($uri, $method = 'get');
+	public function dispatch($uri, $method = 'get');
 }

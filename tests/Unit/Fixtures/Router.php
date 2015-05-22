@@ -2,6 +2,8 @@
 
 namespace Tests\Bleicker\Routing\Unit\Fixtures;
 
+use Bleicker\Routing\Result;
+use Bleicker\Routing\ResultInterface;
 use Bleicker\Routing\Route;
 use Bleicker\Routing\RouteInterface;
 use Bleicker\Routing\RouterInterface;
@@ -40,9 +42,9 @@ class Router implements RouterInterface {
 	/**
 	 * @param string $uri
 	 * @param string $method
-	 * @return RouteInterface
+	 * @return ResultInterface
 	 */
-	public function findMatchingRoute($uri, $method = 'get') {
-		return Route::create('foo', 'bar', '.*', 'get');
+	public function dispatch($uri, $method = 'get') {
+		return Result::create(1, Route::create('foo', 'bar', '.*', 'get'), ['foo' => 'bar']);
 	}
 }

@@ -2,7 +2,7 @@
 
 namespace Tests\Bleicker\Routing\Unit;
 
-use Bleicker\Routing\RouteInterface;
+use Bleicker\Routing\ResultInterface;
 use Bleicker\Routing\RouterInterface;
 use Tests\Bleicker\Routing\Unit\Fixtures\Router;
 use Tests\Bleicker\Routing\UnitTestCase;
@@ -27,6 +27,6 @@ class RouterTest extends UnitTestCase {
 	 */
 	public function dispatchTest() {
 		$router = new Router();
-		$this->assertInstanceOf(RouteInterface::class, $router->findMatchingRoute('foo', 'get'));
+		$this->assertInstanceOf(ResultInterface::class, $router->dispatch('foo', 'get'));
 	}
 }
